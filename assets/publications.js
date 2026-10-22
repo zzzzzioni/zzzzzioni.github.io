@@ -31,7 +31,7 @@
   const years = Object.keys(byYear).sort((a, b) => b - a);
 
   if (!years.length) {
-    list.innerHTML = '<p class="muted">아직 등록된 논문이 없습니다.</p>';
+    list.innerHTML = '<p class="muted">No publications yet.</p>';
     return;
   }
 

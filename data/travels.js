@@ -1,15 +1,15 @@
 // =============================================================
-// 여행 데이터: 다녀온 곳마다 객체를 하나씩 추가하면 지도에 핀이 생깁니다.
+// Travels: add one object per place visited and a pin appears on the map.
 //
-//  country : 나라 이름 (방문 국가 수는 이 값 기준으로 셉니다)
-//  city    : 도시 이름 (선택)
-//  lat/lng : 위도/경도. 구글 지도에서 장소 우클릭하면 복사할 수 있어요.
-//  date    : 방문 시기 (자유 형식)
-//  note    : 한 줄 메모 (선택)
-//  photos  : images/travel/ 폴더에 사진을 넣고 경로를 적습니다.
-//            "경로" 만 써도 되고, { src: "경로", caption: "설명" } 형태도 됩니다.
+//  country : country name (the visited-country count is based on this)
+//  city    : city name (optional)
+//  lat/lng : latitude/longitude. Right-click a place in Google Maps to copy them.
+//  date    : when you visited (any format)
+//  note    : one-line note (optional)
+//  photos  : put photos in images/travel/ and list their paths.
+//            Use a plain "path" or { src: "path", caption: "text" }.
 //
-// 같은 나라의 여러 도시를 따로 찍고 싶으면 객체를 도시별로 나누면 됩니다.
+// To pin several cities in the same country, add one object per city.
 // =============================================================
 
 window.TRAVELS = [
@@ -19,9 +19,9 @@ window.TRAVELS = [
     lat: 35.6762,
     lng: 139.6503,
     date: "2024.01",
-    note: "첫 해외 학회 겸 여행",
+    note: "First overseas conference trip",
     photos: [
-      // { src: "images/travel/tokyo-1.jpg", caption: "시부야 야경" },
+      // { src: "images/travel/tokyo-1.jpg", caption: "Shibuya at night" },
       // "images/travel/tokyo-2.jpg",
     ],
   },

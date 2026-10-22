@@ -1,15 +1,15 @@
 // =============================================================
-// 논문 데이터: 객체를 하나 추가하면 해당 연도 아래에 자동으로 정렬됩니다.
+// Publications: add one object per paper; it is grouped under its year automatically.
 //
-//  year    : 연도 (이 값으로 묶여서 최신 연도부터 표시)
-//  title   : 논문 제목
-//  authors : 저자 목록. 본인 이름은 ME 와 똑같이 적으면 굵게 표시됩니다.
-//            공동 1저자는 이름 뒤에 * 를 붙이세요.
-//  venue   : 학회/저널 약칭 (태그로 표시, 예: "NeurIPS")
-//  track   : Main, Findings, Workshop 등 (선택, 태그로 표시)
-//  oral    : 구두 발표면 true (선택, Oral 태그로 표시)
-//  note    : Spotlight, Under review 등 그 밖의 태그 (선택)
-//  links   : { pdf, arxiv, code, project, slides, bibtex } 중 있는 것만 (선택)
+//  year    : year (papers are grouped by this, newest first)
+//  title   : paper title
+//  authors : author list. Names that exactly match ME are shown in bold.
+//            Append * to a name for equal contribution.
+//  venue   : short conference/journal name (shown as a tag, e.g. "NeurIPS")
+//  track   : Main, Findings, Workshop, etc. (optional, shown as a tag)
+//  oral    : true for an oral presentation (optional, shown as an Oral tag)
+//  note    : any other tag, e.g. Spotlight, Under review (optional)
+//  links   : any of { pdf, arxiv, code, project, slides, bibtex } (optional)
 // =============================================================
 
 window.ME = "Jiwon Jeong";

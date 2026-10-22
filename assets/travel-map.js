@@ -1,11 +1,11 @@
 (function () {
   const trips = window.TRAVELS || [];
 
-  // 방문 국가 수
+  // Number of countries visited
   const countries = new Set(trips.map((t) => t.country));
   document.getElementById("country-count").textContent = countries.size;
 
-  // 지도 (OpenStreetMap 타일, API 키 필요 없음)
+  // Map (OpenStreetMap tiles, no API key needed)
   const map = L.map("map", { worldCopyJump: true, scrollWheelZoom: false }).setView([25, 30], 2);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -24,13 +24,13 @@
   trips.forEach((t) => {
     const m = L.marker([t.lat, t.lng], { icon: pinIcon, title: t.city ? `${t.city}, ${t.country}` : t.country }).addTo(map);
     const n = (t.photos || []).length;
-    m.bindTooltip(`${t.city ? t.city + ", " : ""}${t.country}${n ? ` · 사진 ${n}장` : ""}`, { direction: "top", offset: [0, -8] });
+    m.bindTooltip(`${t.city ? t.city + ", " : ""}${t.country}${n ? ` · ${n} photo${n > 1 ? "s" : ""}` : ""}`, { direction: "top", offset: [0, -8] });
     m.on("click", () => openGallery(t));
     bounds.push([t.lat, t.lng]);
   });
   if (bounds.length > 1) map.fitBounds(bounds, { padding: [40, 40], maxZoom: 4 });
 
-  // 갤러리
+  // Gallery
   const g = document.getElementById("gallery");
   const titleEl = document.getElementById("gallery-title");
   const metaEl = document.getElementById("gallery-meta");
@@ -56,7 +56,7 @@
     empty.hidden = has;
     prev.hidden = next.hidden = photos.length < 2;
     thumbs.innerHTML = photos
-      .map((p, i) => `<button data-i="${i}" aria-label="사진 ${i + 1}"><img src="${p.src}" alt="" loading="lazy"></button>`)
+      .map((p, i) => `<button data-i="${i}" aria-label="Photo ${i + 1}"><img src="${p.src}" alt="" loading="lazy"></button>`)
       .join("");
     if (has) show(0);
     g.hidden = false;
