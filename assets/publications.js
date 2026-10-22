@@ -16,6 +16,16 @@
       })
       .join(", ");
 
+  const fmtTags = (p) =>
+    [
+      p.venue && `<span class="tag tag-venue">${esc(p.venue)} ${esc(p.year)}</span>`,
+      p.track && `<span class="tag">${esc(p.track)}</span>`,
+      p.oral && `<span class="tag tag-oral">Oral</span>`,
+      p.note && `<span class="tag">${esc(p.note)}</span>`,
+    ]
+      .filter(Boolean)
+      .join("");
+
   const byYear = {};
   pubs.forEach((p) => (byYear[p.year] = byYear[p.year] || []).push(p));
   const years = Object.keys(byYear).sort((a, b) => b - a);
@@ -37,9 +47,9 @@
             .map(
               (p) => `
             <li>
+              <p class="pub-tags">${fmtTags(p)}</p>
               <p class="pub-title">${esc(p.title)}</p>
               <p class="pub-authors">${fmtAuthors(p.authors || [])}</p>
-              <p class="pub-venue"><em>${esc(p.venue || "")}</em>${p.note ? ` <span class="badge">${esc(p.note)}</span>` : ""}</p>
               ${
                 p.links
                   ? `<p class="pub-links">${Object.entries(p.links)
