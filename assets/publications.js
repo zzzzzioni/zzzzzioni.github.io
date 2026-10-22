@@ -18,7 +18,7 @@
 
   const fmtTags = (p) =>
     [
-      p.venue && `<span class="tag tag-venue">${esc(p.venue)} ${esc(p.year)}</span>`,
+      p.venue && `<span class="tag tag-venue">${esc(p.venue)}</span>`,
       p.track && `<span class="tag">${esc(p.track)}</span>`,
       p.oral && `<span class="tag tag-oral">Oral</span>`,
       p.note && `<span class="tag">${esc(p.note)}</span>`,
