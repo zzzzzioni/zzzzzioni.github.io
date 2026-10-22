@@ -7,10 +7,9 @@
 
   // 지도 (OpenStreetMap 타일, API 키 필요 없음)
   const map = L.map("map", { worldCopyJump: true, scrollWheelZoom: false }).setView([25, 30], 2);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: "abcd",
-    maxZoom: 18,
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
   }).addTo(map);
   map.on("click", () => map.scrollWheelZoom.enable());
 
